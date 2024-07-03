@@ -1,0 +1,68 @@
+version: "3.7"
+
+services:
+  jobs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobs_api
+    command: bash start.sh
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - jobs_db
+      - redis
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle
+    env_file:
+      - .env
+    networks:
+      - jobs_api_net
+
+  jobs_db:
+    image: "postgres:13"
+    container_name: jobs_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - jobs_api_net
+
+  redis:
+    container_name: jobs_api_redis
+    image: "redis:latest"
+    command: redis-server
+    volumes:
+      - redis_data:/data
+    networks:
+      - jobs_api_net
+
+  sidekiq_jobs_api:
+    depends_on:
+      - "redis"
+      - "jobs"
+    build: .
+    command: bundle exec sidekiq
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle
+    networks:
+      - jobs_api_net
+
+volumes:
+  redis_data:
+  postgres_data:
+  gem_cache:
+
+networks:
+  jobs_api_net:
