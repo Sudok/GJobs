@@ -84,6 +84,11 @@ GEM
     diff-lcs (1.5.1)
     dotenv (2.8.1)
     erubi (1.13.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x86_64-linux-gnu)
@@ -91,7 +96,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
-    io-wait (0.3.1)
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -119,8 +123,7 @@ GEM
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.1.2)
-      io-wait
+    net-protocol (0.2.2)
       timeout
     net-smtp (0.5.0)
       net-protocol
@@ -262,6 +265,7 @@ DEPENDENCIES
   devise (~> 4.9)
   devise_token_auth (~> 1.2.0)
   dotenv (~> 2.7)
+  factory_bot_rails (~> 6.2)
   faker
   jbuilder (~> 2.11, >= 2.11.5)
   listen (>= 3.0.5, < 3.2)

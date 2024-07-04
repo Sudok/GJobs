@@ -8,4 +8,6 @@ class Recruiter < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   include DeviseTokenAuth::Concerns::User
+
+  has_many :jobs
 end

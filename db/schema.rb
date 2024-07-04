@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_04_001827) do
+ActiveRecord::Schema.define(version: 2024_07_04_180216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.string "skills"
+    t.bigint "recruiter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recruiter_id"], name: "index_jobs_on_recruiter_id"
+  end
 
   create_table "recruiters", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -38,4 +51,5 @@ ActiveRecord::Schema.define(version: 2024_07_04_001827) do
     t.index ["uid", "provider"], name: "index_recruiters_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "jobs", "recruiters"
 end
