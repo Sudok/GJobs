@@ -257,7 +257,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   database_cleaner
-  devise_token_auth (~> 1.2, >= 1.2.3)
+  devise (~> 4.9)
+  devise_token_auth (~> 1.2.0)
   dotenv (~> 2.7)
   faker
   jbuilder (~> 2.11, >= 2.11.5)

@@ -8,7 +8,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
+gem 'devise', '~> 4.9'
+gem 'devise_token_auth', '~> 1.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
