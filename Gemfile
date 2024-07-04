@@ -3,40 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
-# Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
 gem 'puma', '~> 3.11'
-gem "jbuilder", "~> 2.11", ">= 2.11.5"
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
+gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 gem 'bootsnap', '>= 1.4.2', require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "database_cleaner"
-  gem "faker"
-  gem "rspec-rails", "~> 4.1", ">= 4.1.2"
-  gem "shoulda-matchers", "~> 5.0"
-  gem "rubocop"
-  gem "rubocop-github", require: false
-  gem "rubocop-performance", require: false
-  gem "rubocop-rails", require: false
-  gem "rubocop-rspec"
-  gem "dotenv", '~> 2.7'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rubocop'
+  gem 'rubocop-github', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
+  gem 'dotenv', '~> 2.7'
 end
 
 group :development do
