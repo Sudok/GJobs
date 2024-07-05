@@ -62,3 +62,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def sign_in(user)
+  post recruiter_login_session_url(email: user.email, password: user.password)
+end

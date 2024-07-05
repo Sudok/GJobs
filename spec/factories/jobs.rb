@@ -6,7 +6,7 @@ FactoryBot.define do
     end_date { Date.today + 30 }
     status { "open" }
     skills { "Skill1, Skill2, Skill3" }
-    association :recruiter
+    recruiter_id { create(:recruiter).id }
 
     trait :closed do
       status { "closed" }
