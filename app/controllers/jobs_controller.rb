@@ -1,12 +1,15 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[ show update destroy ]
-  before_action :authenticate_recruiter_recruiter!, only: %i[ create update destroy ]
+  before_action :authenticate_recruiter_login!, only: %i[ create update destroy ]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
-
+    if params[:query].present?
+      @jobs = Job.search_jobs(params[:query])
+    else
+      @jobs = Job.active
+    end
   end
 
   # GET /jobs/1
