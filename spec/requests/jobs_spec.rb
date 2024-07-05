@@ -25,6 +25,19 @@ RSpec.describe "Jobs", type: :request do
       json_response = JSON.parse(response.body)
       expect(json_response.size).to eq(5)
     end
+
+    it 'list querying jobs' do
+      job = create(:job, title: 'Desenvolvedor SAP')
+
+      get "/jobs/?query=#{job.title}", headers: headers
+
+      expect(response).to be_successful
+      json_response = JSON.parse(response.body)
+
+      expect(json_response.size).to eq(1)
+      response_job = json_response.first
+      expect(response_job["id"]).to eql job.id
+    end
   end
 
   describe "GET /show" do
