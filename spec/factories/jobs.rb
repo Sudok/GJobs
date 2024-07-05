@@ -4,7 +4,7 @@ FactoryBot.define do
     description { "desenvolver aplicações" }
     start_date { Date.today }
     end_date { Date.today + 30 }
-    status { "open" }
+    status { :active }
     skills { "Skill1, Skill2, Skill3" }
     recruiter_id { create(:recruiter).id }
 
