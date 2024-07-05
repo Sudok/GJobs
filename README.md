@@ -13,6 +13,9 @@ Desafio técnico para empresa Landtech, visando a criação de um job board!
 
 ### Executando o projeto:
 
+Antes de rodar os comandos abaixo, é necessario duplicar o .env.development.
+E alterar o nome para: .env
+
 ```ruby
 bundle install
 rails db:migrate
@@ -29,6 +32,9 @@ make setup
 make start
 ```
 Depois só acessar localhost:3000
+OBS: caso tenha problemas com o DB, é só alterar o .env.development
+trocar
+PG_HOST para: localhost
 
 ### Rodando testes:
 só rodar o comando, e o mesmo já vai executar todos os testes.
