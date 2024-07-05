@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :submission do
-    name { "MyString" }
-    email { "MyString" }
-    mobile_phone { "MyString" }
-    resume { "MyString" }
-    job { nil }
+    name { "Bruce Banner" }
+    email { Faker::Internet.email }
+    mobile_phone { "1197655132" }
+    resume { "Pessoa empenhada" }
+    job_id { create(:job).id }
   end
 end

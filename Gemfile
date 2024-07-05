@@ -12,6 +12,7 @@ gem 'rack-cors', '~> 2.0'
 gem 'devise', '~> 4.9'
 gem 'devise_token_auth', '~> 1.2.0'
 gem 'pg_search', '~> 2.3'
+gem "sidekiq", "~> 7.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
